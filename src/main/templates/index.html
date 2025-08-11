@@ -61,6 +61,11 @@
       overflow: hidden;
       background: url('{{ url_for('static', filename='hedgie.jpeg') }}') no-repeat center center fixed;
       background-size: cover;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 5%;
     }
 
     .background-container::before {
@@ -76,7 +81,9 @@
       position: relative;
       z-index: 1;
       max-width: 400px;
-      margin: 5% auto;
+      min-width: 320px;  /* ensures it won’t shrink smaller than this */
+      width: 100%;       /* take full width within max-width and min-width */
+      margin: 0;
       background: rgba(255, 255, 255, 0.95);
       padding: 2em 2.5em;
       border-radius: 8px;
