@@ -11,7 +11,7 @@ For development
 source .venv/bin/activate
 pip install -r src/requirements.txt
 cd src/main
-flask --app app run
+flask --app main run
 ```
 
 Or just run the container image.  

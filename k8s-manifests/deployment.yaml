@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: passphoria-depl
+  name: passphoria-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: passphoria-depl
+  template:
+    metadata:
+      labels:
+        app: passphoria-depl
+    spec:
+      containers:
+      - image: ghcr.io/xamma/passphoria:latest
+        imagePullPolicy: Always
+        name: passphoria
+        ports:
+        - containerPort: 5000
