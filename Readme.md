@@ -5,6 +5,10 @@ You can read more about it here: https://en.wikipedia.org/wiki/Diceware
 
 Using the diceware API for python: https://diceware.readthedocs.io/en/stable/index.html
 
+## Demo
+
+![Demo](./assets/demo.png)
+
 ## Setup
 For development
 ```bash
