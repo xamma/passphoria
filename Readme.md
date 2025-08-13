@@ -9,7 +9,19 @@ Using the diceware API for python: https://diceware.readthedocs.io/en/stable/ind
 
 ![Demo](./assets/demo.png)
 
-## Setup
+## Installation
+Use my helm-chart for deploying it to a Kubernetes cluster.  
+Change the values accordingly, e.g. if you want to use an Ingress and its annoation etc.  
+
+```bash
+helm repo add xammahelm https://xamma.github.io/helm-charts
+helm repo update
+helm search repo xammahelm
+
+helm install passphoria-rel xammahelm/passphoria -f values.yaml -n passphoria --create-namespace
+```
+
+## Dev-Setup
 For development
 ```bash
 source .venv/bin/activate
