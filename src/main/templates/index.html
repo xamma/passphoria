@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Diceware Passphrase Generator</title>
+  <title>Passphoria</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='hedgie.svg') }}" />
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='planet.svg') }}" />
   <style>
     body, html {
       margin: 0;
@@ -37,8 +37,8 @@
     }
 
     .header-icon {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
     }
 
@@ -59,7 +59,7 @@
       position: relative;
       min-height: calc(100vh - 60px);
       overflow: hidden;
-      background: url('{{ url_for('static', filename='hedgie.jpeg') }}') no-repeat center center fixed;
+      background: url('{{ url_for('static', filename='astronaut.jpg') }}') no-repeat center center fixed;
       background-size: cover;
 
       display: flex;
@@ -160,8 +160,8 @@
 <body>
   <header>
     <div class="header-content">
-      <h1>Diceware Passphrase Generator</h1>
-      <img src="{{ url_for('static', filename='hedgieround.png') }}" alt="Icon" class="header-icon" />
+      <h1>Passphoria | xammaops.win</h1>
+      <img src="{{ url_for('static', filename='astrodog.png') }}" alt="Icon" class="header-icon" />
     </div>
   </header>
 
@@ -169,10 +169,10 @@
     <div class="form-container">
       <form id="passphrase-form">
         <label for="num">Number of words:</label>
-        <input type="number" id="num" name="num" value="6" min="1" max="20" />
+        <input type="number" id="num" name="num" value="5" min="1" max="20" />
 
         <label for="delimiter">Delimiter:</label>
-        <input type="text" id="delimiter" name="delimiter" value="" maxlength="1" />
+        <input type="text" id="delimiter" name="delimiter" value=" " maxlength="1" />
 
         <label for="specials">Number of special characters:</label>
         <input type="number" id="specials" name="specials" value="0" min="0" max="10" />
@@ -240,7 +240,7 @@
           copyBtn.textContent = 'Copied!';
           setTimeout(() => {
             copyBtn.textContent = 'Copy Passphrase';
-          }, 2000);
+          }, 1000);
         })
         .catch(err => {
           console.error('Failed to copy: ', err);

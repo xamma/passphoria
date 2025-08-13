@@ -1,7 +1,9 @@
-# Xammaops' diceware
+# Passphoria
 My own API implementation for passphrase generating using the diceware logic.  
 
 You can read more about it here: https://en.wikipedia.org/wiki/Diceware  
+
+Using the diceware API for python: https://diceware.readthedocs.io/en/stable/index.html
 
 ## Setup
 For development
@@ -15,7 +17,43 @@ flask --app app run
 Or just run the container image.  
 
 ## Usage
-You can use the UI at the website hosted at **https://dice.xammaops.win** or use the RestAPI:
+You can use the UI at the website hosted at **https://passphoria.xammaops.win** or use the RestAPI:
 
+### Get a passphrase with default values
 ```bash
+curl --location --request POST 'https://passphoria.xammaops.win/api/passphrase'
+```
+Which gives you a nice passphrase:
+```json
+{
+    "passphrase": "Glance Buddhist Bagged Daisy Roundish"
+}
+```
+
+### Get a passphrase with custom values
+```bash
+curl --location 'http://localhost:5000/api/passphrase' \
+--header 'Content-Type: application/json' \
+--data '{
+    "num": 3,
+    "delimiter": "#",
+    "specials": 2,
+    "caps": false
+}'
+```
+
+Which will return a response like this:
+```json
+{
+    "passphrase": "gal7antly#labored#saucines^"
+}
+```
+
+### Defaults
+These are the default values used by the API:
+```bash
+num: 5   # Number of words the passphrase contains
+delimiter: ' '  # Use an empty string as delimiter
+specials: 0  # Dont use any special characters
+caps: true # Capitalize the words
 ```
