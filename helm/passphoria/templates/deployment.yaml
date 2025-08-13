@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $.Release.Name }}-depl
+  labels:
+    app: passphoria-depl
+  {{- include "passphoria.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.depl.replicas }}
+  selector:
+    matchLabels:
+      app: passphoria-depl
+    {{- include "passphoria.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: passphoria-depl
+      {{- include "passphoria.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.depl.passphoria.image.repository }}:{{ .Values.depl.passphoria.image.tag
+          | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.depl.passphoria.imagePullPolicy }}
+        name: passphoria
+        ports:
+        - containerPort: 5000
+        resources: {}
