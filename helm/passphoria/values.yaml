@@ -37,3 +37,13 @@ ingress:
     - secretName: passphoria-tls
       hosts:
         - passphoria.xammaops.win
+
+httproute:
+  enabled: true
+  parentRefs:
+    - name: "envoy-internal"
+      namespace: "networking"
+  hosts:
+    - host: passphoria.xammaops.win
+      paths:
+        - /
